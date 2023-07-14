@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital CLock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="multi-color-border">
+    <div class="clock">
+        <div class="display">
+        </div>
+    </div>
+</div>
+    <script>
+        setInterval(function(){
+            const clock = document.querySelector(".display");
+            var time = new Date();
+            var hr = time.getHours();
+            var min = time.getMinutes();
+            var sec = time.getSeconds();
+            var day = "AM";
+
+            if (hr == 0) {
+                hr = 12;
+            }
+            if (min<10) {
+                min = '0' + min;
+            }
+            if (sec<10) {
+                sec = '0' + sec;
+            }
+            if (hr > 12) {
+                day = 'PM';
+                hr = hr - 12;
+            }
+
+            if (hr < 10) {
+                hr = '0' + hr;
+            }
+            
+            clock.textContent = hr + ":" + min + ":" + sec + " " + day
+        });
+    </script>
+</body>
+</html>
